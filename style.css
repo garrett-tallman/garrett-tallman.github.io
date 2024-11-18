@@ -110,8 +110,8 @@ footer .social-icons {
 
 footer .social-icons a {
     display: inline-block;
-    width: 48px; /* Set fixed size for logos */
-    height: 48px; /* Ensure aspect ratio */
+    width: 24px; /* Set fixed size for logos */
+    height: 24px; /* Ensure aspect ratio */
     overflow: hidden; /* Crop if necessary */
 }
 

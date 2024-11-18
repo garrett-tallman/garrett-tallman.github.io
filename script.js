@@ -1,6 +1,6 @@
 // Typewriter Effect
 const nameText = "Garrett Tallman";
-const titleText = "Machine Learning Product Manager";
+const titleText = "Product Manager";
 let nameIndex = 0;
 let titleIndex = 0;
 

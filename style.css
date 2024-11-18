@@ -126,6 +126,21 @@ body {
     color: inherit; /* No color change on hover */
 }
 
+.email-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.email-link:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.email-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Footer Section */
 footer {
     text-align: center;

@@ -46,14 +46,13 @@ body {
 .hidden {
     opacity: 0;
     transform: translateY(20px); /* Move slightly down initially */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
 }
 
 /* Show with animation */
 .visible {
     opacity: 1;
-    transform: translateY(20px); /* Return to original position */
-    transition: opacity 0.6s ease-in, transform 0.6s ease-in; /* Smooth transition */
+    transform: translateY(0); /* Return to original position */
+    transition: opacity 0.2s ease-in, transform 0.6s ease-in; /* Smooth transition */
 }
 
 /* Name and Title */

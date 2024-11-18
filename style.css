@@ -108,6 +108,24 @@ body {
     color: #bbbbbb;
 }
 
+/* Remove link styles for the resume link */
+.resume-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Ensure it matches the card text color */
+}
+
+/* Visited links should also look the same */
+.resume-link:visited {
+    text-decoration: none; /* Remove underline for visited links */
+    color: inherit; /* Match the original color */
+}
+
+/* Optional: Hover effect for interactivity */
+.resume-link:hover {
+    text-decoration: none; /* Keep text-decoration off */
+    color: inherit; /* No color change on hover */
+}
+
 /* Footer Section */
 footer {
     text-align: center;

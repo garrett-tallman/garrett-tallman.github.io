@@ -7,15 +7,42 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #000000; /* Force black background */
-    color: #ffffff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-/* Page Container */
+/* Theme Variables */
+:root {
+    /* Dark Mode Colors */
+    --background-color: #000;
+    --text-color: #fff;
+    --card-background: #1d1d1d;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --card-hover-shadow: rgba(0, 0, 0, 0.5);
+    --subtle-text-color: #aaaaaad4;
+    --link-color: #fff;
+    --link-hover-color: #ccc;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Light Mode Colors */
+        --background-color: #f9f9f9;
+        --text-color: #000;
+        --card-background: #fff;
+        --card-shadow: rgba(0, 0, 0, 0.1);
+        --card-hover-shadow: rgba(0, 0, 0, 0.2);
+        --subtle-text-color: #555;
+        --link-color: #000;
+        --link-hover-color: #333;
+    }
+}
+
+/* Layout: Containers and Columns */
 .container {
     display: flex;
     flex-direction: column; /* Default for mobile */
@@ -25,8 +52,8 @@ body {
 }
 
 .left-column {
-    display: flex;
     flex: 1;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     text-align: left;
@@ -42,36 +69,35 @@ body {
     padding: 20px;
 }
 
-/* Hidden initially */
+/* Visibility and Animations */
 .hidden {
     opacity: 0;
-    transform: translateY(20px); /* Move slightly down initially */
+    transform: translateY(20px);
 }
 
-/* Show with animation */
 .visible {
     opacity: 1;
-    transform: translateY(0); /* Return to original position */
-    transition: opacity 0.2s ease-in, transform 0.6s ease-in; /* Smooth transition */
+    transform: translateY(0);
+    transition: opacity 0.2s ease-in, transform 0.6s ease-in;
 }
 
-/* Name and Title */
+/* Typography: Intro Section */
 .intro {
     max-width: 80%;
-    margin: auto;
+    margin: 0 auto 20px;
 }
 
 #name {
     font-size: clamp(1.75rem, 5vw, 4rem);
     font-weight: bold;
-    text-align: left; /* Left-oriented for both mobile and desktop */
+    text-align: left;
     margin-bottom: 10px;
 }
 
 #title {
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    color: #aaaaaad4;
-    text-align: left; /* Left-oriented for both mobile and desktop */
+    color: var(--subtle-text-color);
+    text-align: left;
 }
 
 /* Links Section */
@@ -84,94 +110,86 @@ body {
 }
 
 .link-card {
-    background: #1d1d1d;
+    background: var(--card-background);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px var(--card-shadow);
     text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .link-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 12px var(--card-hover-shadow);
 }
 
 .link-card h2 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .link-card p {
     font-size: 0.9rem;
-    color: #bbbbbb;
+    color: var(--subtle-text-color);
 }
 
-/* Remove link styles for the resume link */
-.resume-link {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Ensure it matches the card text color */
-}
-
-/* Visited links should also look the same */
-.resume-link:visited {
-    text-decoration: none; /* Remove underline for visited links */
-    color: inherit; /* Match the original color */
-}
-
-/* Optional: Hover effect for interactivity */
-.resume-link:hover {
-    text-decoration: none; /* Keep text-decoration off */
-    color: inherit; /* No color change on hover */
-}
-
-.email-link {
+/* Links and Interactivity */
+.resume-link, .email-link {
     text-decoration: none;
-    color: inherit;
+    color: var(--link-color);
 }
 
-.email-link:visited {
+.resume-link:visited, .email-link:visited {
     text-decoration: none;
-    color: inherit;
+    color: var(--link-color);
 }
 
-.email-link:hover {
+.resume-link:hover, .email-link:hover {
     text-decoration: none;
-    color: inherit;
+    color: var(--link-hover-color);
 }
 
 /* Footer Section */
 footer {
     text-align: center;
-    color: #aaaaaad4;
     padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 footer .social-icons {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px; /* Adjust spacing between logos */
+    gap: 20px;
 }
 
 footer .social-icons a {
-    display: inline-block;
-    width: 20px; /* Set fixed size for logos */
-    height: 20px; /* Ensure aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
 }
 
-footer .social-icons img {
+footer .social-icons svg {
     width: 100%;
-    height: auto;
-    filter: brightness(0.2) invert(0.8); /* Make white logos visible on black background */
-    transition: transform 0.2s ease-in-out;
+    height: 100%;
+    fill: var(--text-color);
+    transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
 }
 
+footer .social-icons svg:hover {
+    transform: scale(1.1);
+    fill: var(--link-hover-color);
+}
+
+/* Responsive Design */
 /* Desktop Layout */
 @media (min-width: 768px) {
     .container {
-        flex-direction: row; /* Two-column layout for desktop */
+        flex-direction: row; /* Two-column layout */
     }
 
     .left-column {
@@ -179,7 +197,6 @@ footer .social-icons img {
         align-items: center;
         text-align: left;
         padding: 0 40px;
-        /* Removed border-right for no divider */
     }
 
     .right-column {
@@ -188,6 +205,36 @@ footer .social-icons img {
     }
 
     .links {
-        grid-template-columns: 1fr; /* Keep single column for cards */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .left-column {
+        padding: 10px 20px;
+        margin-bottom: 10px;
+    }
+
+    .intro {
+        margin: 0 0 10px;
+    }
+
+    .links {
+        margin-top: 10px;
+    }
+
+    .link-card {
+        margin: 10px 0;
+    }
+
+    footer .social-icons a {
+        width: calc(100% / 4);
+        max-width: 36px;
     }
 }

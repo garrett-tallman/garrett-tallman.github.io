@@ -101,22 +101,25 @@ footer {
     padding: 20px;
 }
 
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Adjust spacing between logos */
+}
+
 footer .social-icons a {
-    margin: 0 10px;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 24px; /* Set fixed size for logos */
+    height: 24px; /* Ensure aspect ratio */
+    overflow: hidden; /* Crop if necessary */
 }
 
 footer .social-icons img {
     width: 100%;
     height: auto;
-    filter: brightness(0) invert(1); /* Makes white logos visible on black */
+    filter: brightness(0) invert(1); /* Make white logos visible on black background */
     transition: transform 0.2s ease-in-out;
-}
-
-footer .social-icons img:hover {
-    transform: scale(1.1);
 }
 
 /* Desktop Layout */

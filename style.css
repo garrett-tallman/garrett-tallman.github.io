@@ -49,7 +49,7 @@ body {
 }
 
 #name {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(1.5rem, 5vw, 4rem);
     font-weight: bold;
     text-align: left; /* Left-oriented for both mobile and desktop */
     margin-bottom: 10px;
@@ -118,7 +118,7 @@ footer .social-icons a {
 footer .social-icons img {
     width: 100%;
     height: auto;
-    filter: brightness(0) invert(1); /* Make white logos visible on black background */
+    filter: brightness(0.2) invert(0.8); /* Make white logos visible on black background */
     transition: transform 0.2s ease-in-out;
 }
 

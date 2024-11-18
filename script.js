@@ -19,6 +19,6 @@ function typeEffect(id, text, speed) {
 
 // Start Typing Animation
 window.onload = () => {
-    typeEffect("name", nameText, 100); // Type name at 100ms speed
+    typeEffect("name", nameText, 85); // Type name at 100ms speed
     setTimeout(() => typeEffect("title", titleText, 100), nameText.length * 100 + 500); // Start title after name
 };

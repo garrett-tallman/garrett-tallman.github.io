@@ -133,7 +133,7 @@ footer .social-icons img {
         align-items: center;
         text-align: left;
         padding: 0 40px;
-        border-right: 1px solid #333; /* Separate left and right visually */
+        /* Removed border-right for no divider */
     }
 
     .right-column {

@@ -1,1 +1,0 @@
-# garrett-tallman.github.io

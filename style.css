@@ -10,7 +10,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -44,16 +43,16 @@ body {
 
 /* Layout: Containers and Columns */
 .container {
+    flex: 1; /* Ensure it takes up available space */
     display: flex;
     flex-direction: column; /* Default for mobile */
     padding: 20px;
     width: 100%;
-    height: 100vh;
 }
 
 .left-column {
     flex: 1;
-    display: flex;
+    display: flex; 
     justify-content: flex-start;
     align-items: center;
     text-align: left;
@@ -66,6 +65,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
     padding: 20px;
 }
 
@@ -85,6 +85,17 @@ body {
 .intro {
     max-width: 80%;
     margin: 0 auto 20px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.intro a {
+    color: var(--intro-color);
+    text-decoration: none;
+}
+
+.intro:hover {
+    transform: translateY(-5px);
 }
 
 #name {
@@ -134,20 +145,9 @@ body {
     color: var(--subtle-text-color);
 }
 
-/* Links and Interactivity */
-.resume-link, .email-link {
-    text-decoration: none;
+.link-card a {
     color: var(--link-color);
-}
-
-.resume-link:visited, .email-link:visited {
     text-decoration: none;
-    color: var(--link-color);
-}
-
-.resume-link:hover, .email-link:hover {
-    text-decoration: none;
-    color: var(--link-hover-color);
 }
 
 /* Footer Section */
@@ -156,6 +156,7 @@ footer {
     padding: 20px;
     background-color: var(--background-color);
     color: var(--text-color);
+    flex-shrink: 0; /* Prevent footer from shrinking */
 }
 
 footer .social-icons {
@@ -169,20 +170,21 @@ footer .social-icons a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 30px; /* Fixed size for the container */
+    height: 30px; /* Fixed size for the container */
+    overflow: hidden; /* Ensure no overflow issues */
 }
 
 footer .social-icons svg {
-    width: 100%;
-    height: 100%;
-    fill: var(--text-color);
+    width: 100%; /* Scale SVG to fit the container */
+    height: 100%; /* Scale SVG to fit the container */
+    fill: white; /* Default color */
     transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
 }
 
 footer .social-icons svg:hover {
-    transform: scale(1.1);
-    fill: var(--link-hover-color);
+    transform: scale(1.1); /* Slight zoom on hover */
+    fill: #cccccc; /* Change color on hover */
 }
 
 /* Responsive Design */
@@ -218,7 +220,7 @@ footer .social-icons svg:hover {
 
     .left-column {
         padding: 10px 20px;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
 
     .intro {

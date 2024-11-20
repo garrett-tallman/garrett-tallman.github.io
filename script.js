@@ -1,4 +1,4 @@
-function typeEffect(id, text, speed, callback) {
+function typeEffect(id, text, speed) {
     const element = document.getElementById(id);
     let index = 0;
 
@@ -8,17 +8,13 @@ function typeEffect(id, text, speed, callback) {
             index++;
             setTimeout(typeCharacter, speed);
         } else if (callback) {
-            callback(); // Trigger callback when typing is complete
+            const linksContainer = document.getElementById("links-container");
+            linksContainer.classList.remove("hidden");
+            linksContainer.classList.add("visible");
         }
     }
 
     typeCharacter();
-}
-
-function revealProjects() {
-    const linksContainer = document.getElementById("links-container");
-    linksContainer.classList.remove("hidden");
-    linksContainer.classList.add("visible");
 }
 
 function applyEffectsForPage() {
@@ -27,4 +23,20 @@ function applyEffectsForPage() {
 }
 
 // Ensure animations start when the page is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('footer.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to load footer.");
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error loading footer:', error);
+        });
+});
 window.onload = applyEffectsForPage;
+
